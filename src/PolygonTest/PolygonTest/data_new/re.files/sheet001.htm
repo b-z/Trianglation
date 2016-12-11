@@ -1,0 +1,1141 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 15">
+<link id=Main-File rel=Main-File href="../re.htm">
+<link rel=File-List href=filelist.xml>
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+x\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<link rel=Stylesheet href=stylesheet.css>
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+ruby
+	{ruby-align:left;}
+rt
+	{color:windowtext;
+	font-size:9.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:等线;
+	mso-generic-font-family:auto;
+	mso-font-charset:134;
+	mso-char-type:none;
+	display:none;}
+-->
+</style>
+<![if !supportTabStrip]><script language="JavaScript">
+<!--
+function fnUpdateTabs()
+ {
+  if (parent.window.g_iIEVer>=4) {
+   if (parent.document.readyState=="complete"
+    && parent.frames['frTabs'].document.readyState=="complete")
+   parent.fnSetActiveSheet(0);
+  else
+   window.setTimeout("fnUpdateTabs();",150);
+ }
+}
+
+if (window.name!="frSheet")
+ window.location.replace("../re.htm");
+else
+ fnUpdateTabs();
+//-->
+</script>
+<![endif]>
+</head>
+
+<body link="#0563C1" vlink="#954F72">
+
+<table border=0 cellpadding=0 cellspacing=0 width=1368 style='border-collapse:
+ collapse;table-layout:fixed;width:1026pt'>
+ <col width=72 span=9 style='width:54pt'>
+ <col width=72 style='width:54pt'>
+ <col width=72 span=9 style='width:54pt'>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 width=72 style='height:14.25pt;width:54pt'>size</td>
+  <td width=72 style='width:54pt'>result</td>
+  <td width=72 style='width:54pt'>数据规模</td>
+  <td width=72 style='width:54pt'>修正算法</td>
+  <td width=72 style='width:54pt'>count</td>
+  <td colspan=2 width=144 style='mso-ignore:colspan;width:108pt'>log2((count))</td>
+  <td width=72 style='width:54pt'>旧算法</td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'>优化算法</td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>3</td>
+  <td class=xl65 align=right>3.03E-07</td>
+  <td align=right>1.58496</td>
+  <td align=right>-21.6552</td>
+  <td align=right>0</td>
+  <td align=center>#NAME?</td>
+  <td></td>
+  <td align=right>-21.6932</td>
+  <td></td>
+  <td align=right>-21.6804</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>4</td>
+  <td class=xl65 align=right>5.48E-07</td>
+  <td align=right>2</td>
+  <td align=right>-20.7984</td>
+  <td align=right>13</td>
+  <td align=right>3.70044</td>
+  <td></td>
+  <td align=right>-20.0695</td>
+  <td></td>
+  <td align=right>-20.3978</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>5</td>
+  <td class=xl65 align=right>8.71E-07</td>
+  <td align=right>2.32193</td>
+  <td align=right>-20.1305</td>
+  <td align=right>30</td>
+  <td align=right>4.90689</td>
+  <td></td>
+  <td align=right>-18.7322</td>
+  <td></td>
+  <td align=right>-18.9914</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>6</td>
+  <td class=xl65 align=right>1.21E-06</td>
+  <td align=left valign=top><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+   coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+   filled="f" stroked="f">
+   <v:stroke joinstyle="miter"/>
+   <v:formulas>
+    <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+    <v:f eqn="sum @0 1 0"/>
+    <v:f eqn="sum 0 0 @1"/>
+    <v:f eqn="prod @2 1 2"/>
+    <v:f eqn="prod @3 21600 pixelWidth"/>
+    <v:f eqn="prod @3 21600 pixelHeight"/>
+    <v:f eqn="sum @0 0 1"/>
+    <v:f eqn="prod @6 1 2"/>
+    <v:f eqn="prod @7 21600 pixelWidth"/>
+    <v:f eqn="sum @8 21600 0"/>
+    <v:f eqn="prod @7 21600 pixelHeight"/>
+    <v:f eqn="sum @10 21600 0"/>
+   </v:formulas>
+   <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+   <o:lock v:ext="edit" aspectratio="t"/>
+  </v:shapetype><v:shape id="图表_x0020_1" o:spid="_x0000_s1025" type="#_x0000_t75"
+   style='position:absolute;margin-left:39pt;margin-top:0;width:864.75pt;
+   height:504.75pt;z-index:1;visibility:visible' o:gfxdata="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
+AAAJAAkAUgIAALohAAAAAA==
+">
+   <v:imagedata src="image001.png" o:title=""/>
+   <o:lock v:ext="edit" aspectratio="f"/>
+   <x:ClientData ObjectType="Pict">
+    <x:SizeWithCells/>
+    <x:CF>Bitmap</x:CF>
+    <x:AutoPict/>
+   </x:ClientData>
+  </v:shape><![endif]--><![if !vml]><span style='mso-ignore:vglayout;
+  position:absolute;z-index:1;margin-left:52px;margin-top:0px;width:1153px;
+  height:673px'><img width=1153 height=673 src=image002.png v:shapes="图表_x0020_1"></span><![endif]><span
+  style='mso-ignore:vglayout2'>
+  <table cellpadding=0 cellspacing=0>
+   <tr>
+    <td height=19 align=right width=72 style='height:14.25pt;width:54pt'>2.58496</td>
+   </tr>
+  </table>
+  </span></td>
+  <td align=right>-19.6518</td>
+  <td align=right>49</td>
+  <td align=right>5.61471</td>
+  <td></td>
+  <td align=right>-17.6643</td>
+  <td></td>
+  <td align=right>-18.0058</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>7</td>
+  <td class=xl65 align=right>1.64E-06</td>
+  <td align=right>2.80735</td>
+  <td align=right>-19.2218</td>
+  <td align=right>72</td>
+  <td align=right>6.16993</td>
+  <td></td>
+  <td align=right>-16.7454</td>
+  <td></td>
+  <td align=right>-17.6093</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>8</td>
+  <td class=xl65 align=right>2.13E-06</td>
+  <td align=right>3</td>
+  <td align=right>-18.8417</td>
+  <td align=right>97</td>
+  <td align=right>6.59991</td>
+  <td></td>
+  <td align=right>-15.8288</td>
+  <td></td>
+  <td align=right>-17.1289</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>9</td>
+  <td class=xl65 align=right>2.62E-06</td>
+  <td align=right>3.16993</td>
+  <td align=right>-18.5395</td>
+  <td align=right>126</td>
+  <td align=right>6.97728</td>
+  <td></td>
+  <td align=right>-15.1337</td>
+  <td></td>
+  <td align=right>-16.3373</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>10</td>
+  <td class=xl65 align=right>3.16E-06</td>
+  <td align=right>3.32193</td>
+  <td align=right>-18.2697</td>
+  <td align=right>157</td>
+  <td align=right>7.29462</td>
+  <td></td>
+  <td align=right>-14.7612</td>
+  <td></td>
+  <td align=right>-15.9241</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>11</td>
+  <td class=xl65 align=right>3.86E-06</td>
+  <td align=right>3.45943</td>
+  <td align=right>-17.9835</td>
+  <td align=right>192</td>
+  <td align=right>7.58496</td>
+  <td></td>
+  <td align=right>-14.008</td>
+  <td></td>
+  <td align=right>-15.5448</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>12</td>
+  <td class=xl65 align=right>4.49E-06</td>
+  <td align=right>3.58496</td>
+  <td align=right>-17.7661</td>
+  <td align=right>229</td>
+  <td align=right>7.8392</td>
+  <td></td>
+  <td align=right>-13.5115</td>
+  <td></td>
+  <td align=right>-15.394</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>13</td>
+  <td class=xl65 align=right>5.19E-06</td>
+  <td align=right>3.70044</td>
+  <td align=right>-17.5564</td>
+  <td align=right>270</td>
+  <td align=right>8.07682</td>
+  <td></td>
+  <td align=right>-13.5395</td>
+  <td></td>
+  <td align=right>-14.6643</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>15</td>
+  <td class=xl65 align=right>6.76E-06</td>
+  <td align=right>3.90689</td>
+  <td align=right>-17.1754</td>
+  <td align=right>360</td>
+  <td align=right>8.49185</td>
+  <td></td>
+  <td align=right>-12.8199</td>
+  <td></td>
+  <td align=right>-14.5897</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>16</td>
+  <td class=xl65 align=right>7.66E-06</td>
+  <td align=right>4</td>
+  <td align=right>-16.9942</td>
+  <td align=right>409</td>
+  <td align=right>8.67596</td>
+  <td></td>
+  <td align=right>-12.3492</td>
+  <td></td>
+  <td align=right>-14.3103</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>18</td>
+  <td class=xl65 align=right>9.50E-06</td>
+  <td align=right>4.16993</td>
+  <td align=right>-16.6839</td>
+  <td align=right>517</td>
+  <td align=right>9.01402</td>
+  <td></td>
+  <td align=right>-11.7686</td>
+  <td></td>
+  <td align=right>-13.463</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>20</td>
+  <td class=xl65 align=right>1.17E-05</td>
+  <td align=right>4.32193</td>
+  <td align=right>-16.3893</td>
+  <td align=right>637</td>
+  <td align=right>9.31515</td>
+  <td></td>
+  <td align=right>-11.6461</td>
+  <td></td>
+  <td align=right>-13.488</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>22</td>
+  <td class=xl65 align=right>1.39E-05</td>
+  <td align=right>4.45943</td>
+  <td align=right>-16.1337</td>
+  <td align=right>769</td>
+  <td align=right>9.58684</td>
+  <td></td>
+  <td align=right>-11.2662</td>
+  <td></td>
+  <td align=right>-12.9842</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>24</td>
+  <td class=xl65 align=right>1.65E-05</td>
+  <td align=right>4.58496</td>
+  <td align=right>-15.8903</td>
+  <td align=right>913</td>
+  <td align=right>9.83447</td>
+  <td></td>
+  <td align=right>-11.1576</td>
+  <td></td>
+  <td align=right>-12.771</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>26</td>
+  <td class=xl65 align=right>1.94E-05</td>
+  <td align=right>4.70044</td>
+  <td align=right>-15.6529</td>
+  <td align=right>1069</td>
+  <td align=right>10.062</td>
+  <td></td>
+  <td align=right>-10.3483</td>
+  <td></td>
+  <td align=right>-12.5218</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>29</td>
+  <td class=xl65 align=right>2.37E-05</td>
+  <td align=right>4.85798</td>
+  <td align=right>-15.3668</td>
+  <td align=right>1326</td>
+  <td align=right>10.3729</td>
+  <td></td>
+  <td align=right>-10.0314</td>
+  <td></td>
+  <td align=right>-11.9476</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>32</td>
+  <td class=xl65 align=right>2.87E-05</td>
+  <td align=right>5</td>
+  <td align=right>-15.0908</td>
+  <td align=right>1609</td>
+  <td align=right>10.6519</td>
+  <td></td>
+  <td align=right>-9.78588</td>
+  <td></td>
+  <td align=right>-11.5094</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>35</td>
+  <td class=xl65 align=right>3.47E-05</td>
+  <td align=right>5.12928</td>
+  <td align=right>-14.816</td>
+  <td align=right>1920</td>
+  <td align=right>10.9069</td>
+  <td></td>
+  <td align=right>-9.18771</td>
+  <td></td>
+  <td align=right>-11.3978</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>39</td>
+  <td class=xl65 align=right>4.33E-05</td>
+  <td align=right>5.2854</td>
+  <td align=right>-14.4951</td>
+  <td align=right>2376</td>
+  <td align=right>11.2143</td>
+  <td></td>
+  <td align=right>-8.82623</td>
+  <td></td>
+  <td align=right>-11.087</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>43</td>
+  <td class=xl65 align=right>5.26E-05</td>
+  <td align=right>5.42626</td>
+  <td align=right>-14.2159</td>
+  <td align=right>2880</td>
+  <td align=right>11.4919</td>
+  <td></td>
+  <td align=right>-8.63151</td>
+  <td></td>
+  <td align=right>-10.893</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>47</td>
+  <td class=xl65 align=right>6.27E-05</td>
+  <td align=right>5.55459</td>
+  <td align=right>-13.9616</td>
+  <td align=right>3432</td>
+  <td align=right>11.7448</td>
+  <td></td>
+  <td align=right>-8.31025</td>
+  <td></td>
+  <td align=right>-10.5778</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>52</td>
+  <td class=xl65 align=right>7.55E-05</td>
+  <td align=right>5.70044</td>
+  <td align=right>-13.6932</td>
+  <td align=right>4189</td>
+  <td align=right>12.0324</td>
+  <td></td>
+  <td align=right>-7.76366</td>
+  <td></td>
+  <td align=right>-10.0262</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>57</td>
+  <td class=xl65 align=right>9.64E-05</td>
+  <td align=right>5.83289</td>
+  <td align=right>-13.3401</td>
+  <td align=right>5022</td>
+  <td align=right>12.294</td>
+  <td></td>
+  <td align=right>-7.92276</td>
+  <td></td>
+  <td align=right>-9.93236</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>63</td>
+  <td align=right>0.000111</td>
+  <td align=right>5.97728</td>
+  <td align=right>-13.1416</td>
+  <td align=right>6120</td>
+  <td align=right>12.5793</td>
+  <td></td>
+  <td align=right>-6.92139</td>
+  <td></td>
+  <td align=right>-9.36123</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>69</td>
+  <td align=right>0.000128</td>
+  <td align=right>6.10852</td>
+  <td align=right>-12.9282</td>
+  <td align=right>7326</td>
+  <td align=right>12.8388</td>
+  <td></td>
+  <td align=right>-6.74178</td>
+  <td></td>
+  <td align=right>-9.50635</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>76</td>
+  <td align=right>0.000158</td>
+  <td align=right>6.24793</td>
+  <td align=right>-12.6293</td>
+  <td align=right>8869</td>
+  <td align=right>13.1146</td>
+  <td></td>
+  <td align=right>-6.26795</td>
+  <td></td>
+  <td align=right>-9.08161</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>84</td>
+  <td align=right>0.000189</td>
+  <td align=right>6.39232</td>
+  <td align=right>-12.3724</td>
+  <td align=right>10813</td>
+  <td align=right>13.4005</td>
+  <td></td>
+  <td align=right>-6.26275</td>
+  <td></td>
+  <td align=right>-8.75147</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>92</td>
+  <td align=right>0.000234</td>
+  <td align=right>6.52356</td>
+  <td align=right>-12.0634</td>
+  <td align=right>12949</td>
+  <td align=right>13.6606</td>
+  <td></td>
+  <td align=right>-5.51664</td>
+  <td></td>
+  <td align=right>-8.49513</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>102</td>
+  <td align=right>0.000287</td>
+  <td align=right>6.67243</td>
+  <td align=right>-11.7686</td>
+  <td align=right>15889</td>
+  <td align=right>13.9557</td>
+  <td></td>
+  <td align=right>-5.70252</td>
+  <td></td>
+  <td align=right>-8.14003</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>112</td>
+  <td align=right>0.000337</td>
+  <td align=right>6.80735</td>
+  <td align=right>-11.5343</td>
+  <td align=right>19129</td>
+  <td align=right>14.2235</td>
+  <td></td>
+  <td align=right>-5.07248</td>
+  <td></td>
+  <td align=right>-7.96016</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>123</td>
+  <td align=right>0.000408</td>
+  <td align=right>6.94251</td>
+  <td align=right>-11.2593</td>
+  <td align=right>23040</td>
+  <td align=right>14.4919</td>
+  <td></td>
+  <td align=right>-4.89835</td>
+  <td></td>
+  <td align=right>-7.65404</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>135</td>
+  <td align=right>0.00048</td>
+  <td align=right>7.07682</td>
+  <td align=right>-11.0233</td>
+  <td align=right>27720</td>
+  <td align=right>14.7586</td>
+  <td></td>
+  <td align=right>-4.73456</td>
+  <td></td>
+  <td align=right>-7.25929</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>149</td>
+  <td align=right>0.000581</td>
+  <td align=right>7.21917</td>
+  <td align=right>-10.749</td>
+  <td align=right>33726</td>
+  <td align=right>15.0416</td>
+  <td></td>
+  <td align=right>-3.83908</td>
+  <td></td>
+  <td align=right>-6.91594</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>164</td>
+  <td align=right>0.0007</td>
+  <td align=right>7.35755</td>
+  <td align=right>-10.48</td>
+  <td align=right>40813</td>
+  <td align=right>15.3167</td>
+  <td></td>
+  <td align=right>-3.38647</td>
+  <td></td>
+  <td align=right>-6.76489</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>180</td>
+  <td align=right>0.000852</td>
+  <td align=right>7.49185</td>
+  <td align=right>-10.1968</td>
+  <td align=right>49117</td>
+  <td align=right>15.5839</td>
+  <td></td>
+  <td align=right>-2.95316</td>
+  <td></td>
+  <td align=right>-6.58857</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>198</td>
+  <td align=right>0.001014</td>
+  <td align=right>7.62936</td>
+  <td align=right>-9.94619</td>
+  <td align=right>59377</td>
+  <td align=right>15.8576</td>
+  <td></td>
+  <td align=right>-2.99856</td>
+  <td></td>
+  <td align=right>-6.16004</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>218</td>
+  <td align=right>0.001265</td>
+  <td align=right>7.76818</td>
+  <td align=right>-9.62705</td>
+  <td align=right>71917</td>
+  <td align=right>16.134</td>
+  <td></td>
+  <td align=right>-2.29424</td>
+  <td></td>
+  <td align=right>-5.92687</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>240</td>
+  <td align=right>0.001524</td>
+  <td align=right>7.90689</td>
+  <td align=right>-9.35753</td>
+  <td align=right>87097</td>
+  <td align=right>16.4103</td>
+  <td></td>
+  <td align=right>-2.20506</td>
+  <td></td>
+  <td align=right>-5.5511</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>264</td>
+  <td align=right>0.001824</td>
+  <td align=right>8.04439</td>
+  <td align=right>-9.09851</td>
+  <td align=right>105313</td>
+  <td align=right>16.6843</td>
+  <td></td>
+  <td align=right>-1.57132</td>
+  <td></td>
+  <td align=right>-5.34648</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>291</td>
+  <td align=right>0.00218</td>
+  <td align=right>8.18488</td>
+  <td align=right>-8.84166</td>
+  <td align=right>127872</td>
+  <td align=right>16.9643</td>
+  <td></td>
+  <td align=right>-1.32193</td>
+  <td></td>
+  <td align=right>-5.09928</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>320</td>
+  <td align=right>0.002637</td>
+  <td align=right>8.32193</td>
+  <td align=right>-8.56704</td>
+  <td align=right>154537</td>
+  <td align=right>17.2376</td>
+  <td></td>
+  <td align=right>-1.23277</td>
+  <td></td>
+  <td align=right>-4.75025</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>352</td>
+  <td align=right>0.003195</td>
+  <td align=right>8.45943</td>
+  <td align=right>-8.28983</td>
+  <td align=right>186889</td>
+  <td align=right>17.5118</td>
+  <td></td>
+  <td align=right>-1.20008</td>
+  <td></td>
+  <td align=right>-4.51046</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>387</td>
+  <td align=right>0.003822</td>
+  <td align=right>8.59619</td>
+  <td align=right>-8.03136</td>
+  <td align=right>225792</td>
+  <td align=right>17.7846</td>
+  <td></td>
+  <td align=right>-0.25929</td>
+  <td></td>
+  <td align=right>-4.17462</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>426</td>
+  <td align=right>0.004672</td>
+  <td align=right>8.73471</td>
+  <td align=right>-7.74178</td>
+  <td align=right>273469</td>
+  <td align=right>18.061</td>
+  <td></td>
+  <td align=right>-0.148</td>
+  <td></td>
+  <td align=right>-3.90509</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>468</td>
+  <td align=right>0.005594</td>
+  <td align=right>8.87036</td>
+  <td align=right>-7.48197</td>
+  <td align=right>329917</td>
+  <td align=right>18.3317</td>
+  <td></td>
+  <td align=right>0.258217</td>
+  <td></td>
+  <td align=right>-3.59728</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>515</td>
+  <td align=right>0.006762</td>
+  <td align=right>9.00843</td>
+  <td align=right>-7.20839</td>
+  <td align=right>399360</td>
+  <td align=right>18.6073</td>
+  <td></td>
+  <td align=right>0.495695</td>
+  <td></td>
+  <td align=right>-3.46594</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>567</td>
+  <td align=right>0.008281</td>
+  <td align=right>9.1472</td>
+  <td align=right>-6.91594</td>
+  <td align=right>483912</td>
+  <td align=right>18.8844</td>
+  <td></td>
+  <td align=right>0.756169</td>
+  <td></td>
+  <td align=right>-3.01377</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>623</td>
+  <td align=right>0.009906</td>
+  <td align=right>9.28309</td>
+  <td align=right>-6.65745</td>
+  <td align=right>584040</td>
+  <td align=right>19.1557</td>
+  <td></td>
+  <td align=right>1.62574</td>
+  <td></td>
+  <td align=right>-2.82751</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>686</td>
+  <td align=right>0.012063</td>
+  <td align=right>9.42206</td>
+  <td align=right>-6.37333</td>
+  <td align=right>707929</td>
+  <td align=right>19.4332</td>
+  <td></td>
+  <td align=right>1.95791</td>
+  <td></td>
+  <td align=right>-2.52284</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>754</td>
+  <td align=right>0.014531</td>
+  <td align=right>9.55842</td>
+  <td align=right>-6.1047</td>
+  <td align=right>855013</td>
+  <td align=right>19.7056</td>
+  <td></td>
+  <td align=right>2.15478</td>
+  <td></td>
+  <td align=right>-2.20008</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>830</td>
+  <td align=right>0.017781</td>
+  <td align=right>9.69697</td>
+  <td align=right>-5.8135</td>
+  <td align=right>1035817</td>
+  <td align=right>19.9823</td>
+  <td></td>
+  <td align=right>2.55606</td>
+  <td></td>
+  <td align=right>-1.9964</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>913</td>
+  <td align=right>0.021094</td>
+  <td align=right>9.83447</td>
+  <td align=right>-5.56704</td>
+  <td align=right>1253070</td>
+  <td align=right>20.257</td>
+  <td></td>
+  <td align=right>3.35219</td>
+  <td></td>
+  <td align=right>-1.69199</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>1004</td>
+  <td align=right>0.025625</td>
+  <td align=right>9.97154</td>
+  <td align=right>-5.2863</td>
+  <td align=right>1515013</td>
+  <td align=right>20.5309</td>
+  <td></td>
+  <td align=right>3.60893</td>
+  <td></td>
+  <td align=right>-1.41793</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>1105</td>
+  <td align=right>0.030984</td>
+  <td align=right>10.1098</td>
+  <td align=right>-5.01232</td>
+  <td align=right>1834830</td>
+  <td align=right>20.8072</td>
+  <td></td>
+  <td align=right>3.79691</td>
+  <td></td>
+  <td align=right>-1.13844</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='page-break-before:always;height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>1215</td>
+  <td align=right>0.037656</td>
+  <td align=right>10.2467</td>
+  <td align=right>-4.73097</td>
+  <td align=right>2217960</td>
+  <td align=right>21.0808</td>
+  <td></td>
+  <td align=right>4.68773</td>
+  <td></td>
+  <td align=right>-0.86381</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>1337</td>
+  <td align=right>0.045656</td>
+  <td align=right>10.3848</td>
+  <td align=right>-4.45304</td>
+  <td align=right>2685342</td>
+  <td align=right>21.3567</td>
+  <td></td>
+  <td align=right>4.32495</td>
+  <td></td>
+  <td align=right>-0.40354</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>1471</td>
+  <td align=right>0.054844</td>
+  <td align=right>10.5226</td>
+  <td align=right>-4.18853</td>
+  <td align=right>3250152</td>
+  <td align=right>21.6321</td>
+  <td></td>
+  <td align=right>5.33607</td>
+  <td></td>
+  <td align=right>-0.33643</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>1618</td>
+  <td align=right>0.066375</td>
+  <td align=right>10.66</td>
+  <td align=right>-3.91322</td>
+  <td align=right>3931717</td>
+  <td align=right>21.9067</td>
+  <td></td>
+  <td align=right>5.29499</td>
+  <td></td>
+  <td align=right>0.066261</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>1780</td>
+  <td align=right>0.080188</td>
+  <td align=right>10.7977</td>
+  <td align=right>-3.64048</td>
+  <td align=right>4757917</td>
+  <td align=right>22.1819</td>
+  <td></td>
+  <td align=right>5.97019</td>
+  <td></td>
+  <td align=right>0.386259</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <tr height=19 style='height:14.25pt'>
+  <td height=19 align=right style='height:14.25pt'>1958</td>
+  <td align=right>0.097375</td>
+  <td align=right>10.9352</td>
+  <td align=right>-3.3603</td>
+  <td align=right>5756497</td>
+  <td align=right>22.4568</td>
+  <td></td>
+  <td align=right>6.16784</td>
+  <td></td>
+  <td align=right>0.577248</td>
+  <td colspan=9 style='mso-ignore:colspan'></td>
+ </tr>
+ <![if supportMisalignedColumns]>
+ <tr height=0 style='display:none'>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+  <td width=72 style='width:54pt'></td>
+ </tr>
+ <![endif]>
+</table>
+
+</body>
+
+</html>
