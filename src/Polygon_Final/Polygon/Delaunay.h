@@ -20,15 +20,16 @@ public:
     void setPolygon(Polygonal *p) {
         polygon = p;
     }
+    bool checkValid();
     Polygonal *getPolygon() {
         return polygon;
     }
     vector<Triangle> getResult() {
         return triangles;
     }
+    void computeEdges();
     void computeTriangulation();
 private:
-    void computeEdges();
 #ifndef REWRITE
     void stage1();
     void stage2();
@@ -47,6 +48,9 @@ private:
     bool isOtherEdgesIntersectWithVectors(Edge e1, Edge e2);
     bool isOtherPointsInTriangle(int p1, int p2, int p3);
     bool isIn(Point p, Point p1, Point p2, Point p3);
+    bool isInRing(Point p, Ring r);
+    bool isInRegion(Point p, Region r);
+    bool ringOrder(Ring r);
     int isPolygonEdge(int p1, int p2);
     void removeEdge(int idx);
     bool isIntersection(Edge e1, Edge e2);

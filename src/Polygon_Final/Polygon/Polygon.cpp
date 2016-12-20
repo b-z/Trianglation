@@ -1,67 +1,220 @@
-//{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ 生成的包含文件。
-// 供 Polygon.rc 使用
-//
-#define IDD_ABOUTBOX                    100
-#define IDP_OLE_INIT_FAILED             100
-#define IDB_WRITESMALL                  110
-#define IDB_WRITELARGE                  111
-#define IDB_MAIN                        112
-#define IDB_BUTTONS                     113
-#define IDB_FILELARGE                   114
-#define IDB_FILESMALL                   115
-#define IDR_POPUP_EDIT                  119
-#define ID_STATUSBAR_PANE1              120
-#define ID_STATUSBAR_PANE2              121
-#define IDS_STATUS_PANE1                122
-#define IDS_STATUS_PANE2                123
-#define IDR_MAINFRAME                   128
-#define IDR_MAINFRAME_256               129
-#define IDR_PolygonTYPE                 130
-#define IDR_PASTE_MENU                  151
-#define IDR_WINDOWS_MENU                152
-#define IDS_EDIT_MENU                   306
-#define IDR_RIBBON                      307
-#define ID_WRITE_PASTEASHYPERLINK       32770
-#define ID_COMBO_AorB                   32771
-#define ID_EDGE_AMOUNT                  32774
-#define ID_NEW_EX_RING                  32775
-#define ID_NEW_IN_RING                  32776
-#define ID_SELECT_POINT                 32779
-#define ID_SELECT_RING                  32780
-#define ID_SELECT_REGION                32781
-#define ID_SELECT_TRIANGLE              32783
-#define ID_SELECT_ONLY                  32784
-#define ID_NEW_OUT_RING                 32786
-#define ID_SELECT_POLYGON               32787
-#define ID_ADD_OUT_RING                 32795
-#define ID_ADD_IN_RING                  32796
-#define ID_ADD_POINT                    32797
-#define ID_DELETE                       32798
-#define ID_MOVE_COINCIDENCES            32799
-#define ID_CHECK                        32800
-#define ID_MOVE_COINCIDENT              32801
-#define ID_BUTTON21                     32806
-#define ID_VIEW_A                       32807
-#define ID_VIEW_B                       32808
-#define ID_VIEW_T_FACE                  32809
-#define ID_VIEW_T_EDGE                  32810
-#define ID_VIEW_T_FACE_EDGE             32811
-#define ID_VIEW_POINT_ID                32814
-#define ID_VIEW_STANDARD                32815
-#define ID_VIEW_FIT                     32816
-#define ID_MOVE_SAME                    32817
-#define ID_MOVE_SANE                    32818
-#define ID_TOLERANCE                    32819
-#define ID_TRIANGULATION                32820
+/*
+	@author: Zhou Bowei
+	@date: 2016/9/29
+*/
 
-// Next default values for new objects
-// 
-#ifdef APSTUDIO_INVOKED
-#ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        310
-#define _APS_NEXT_COMMAND_VALUE         32821
-#define _APS_NEXT_CONTROL_VALUE         1000
-#define _APS_NEXT_SYMED_VALUE           310
+// Polygon.cpp : Defines the class behaviors for the application.
+//
+
+#include "stdafx.h"
+#include "afxwinappex.h"
+#include "afxdialogex.h"
+#include "Polygon.h"
+#include "MainFrm.h"
+
+#include "PolygonDoc.h"
+#include "PolygonView.h"
+
+#ifdef _DEBUG
+#define new DEBUG_NEW
 #endif
+
+
+// CPolygonApp
+
+BEGIN_MESSAGE_MAP(CPolygonApp, CWinAppEx)
+	ON_COMMAND(ID_APP_ABOUT, &CPolygonApp::OnAppAbout)
+	// Standard file based document commands
+	ON_COMMAND(ID_FILE_NEW, &CWinAppEx::OnFileNew)
+	ON_COMMAND(ID_FILE_OPEN, &CWinAppEx::OnFileOpen)
+	// Standard print setup command
+	ON_COMMAND(ID_FILE_PRINT_SETUP, &CWinAppEx::OnFilePrintSetup)
+END_MESSAGE_MAP()
+
+
+// CPolygonApp construction
+
+CPolygonApp::CPolygonApp()
+{
+	// support Restart Manager
+	m_dwRestartManagerSupportFlags = AFX_RESTART_MANAGER_SUPPORT_ALL_ASPECTS;
+#ifdef _MANAGED
+	// If the application is built using Common Language Runtime support (/clr):
+	//     1) This additional setting is needed for Restart Manager support to work properly.
+	//     2) In your project, you must add a reference to System.Windows.Forms in order to build.
+	System::Windows::Forms::Application::SetUnhandledExceptionMode(System::Windows::Forms::UnhandledExceptionMode::ThrowException);
 #endif
+
+	// TODO: replace application ID string below with unique ID string; recommended
+	// format for string is CompanyName.ProductName.SubProduct.VersionInformation
+	SetAppID(_T("Polygon.AppID.NoVersion"));
+
+	// TODO: add construction code here,
+	// Place all significant initialization in InitInstance
+}
+
+// The one and only CPolygonApp object
+
+CPolygonApp theApp;
+
+
+// CPolygonApp initialization
+
+BOOL CPolygonApp::InitInstance()
+{
+	// InitCommonControlsEx() is required on Windows XP if an application
+	// manifest specifies use of ComCtl32.dll version 6 or later to enable
+	// visual styles.  Otherwise, any window creation will fail.
+	INITCOMMONCONTROLSEX InitCtrls;
+	InitCtrls.dwSize = sizeof(InitCtrls);
+	// Set this to include all the common control classes you want to use
+	// in your application.
+	InitCtrls.dwICC = ICC_WIN95_CLASSES;
+	InitCommonControlsEx(&InitCtrls);
+
+	CWinAppEx::InitInstance();
+
+
+	// Initialize OLE libraries
+	if (!AfxOleInit())
+	{
+		AfxMessageBox(IDP_OLE_INIT_FAILED);
+		return FALSE;
+	}
+
+	AfxEnableControlContainer();
+
+	EnableTaskbarInteraction(FALSE);
+
+	// AfxInitRichEdit2() is required to use RichEdit control	
+	// AfxInitRichEdit2();
+
+	// Standard initialization
+	// If you are not using these features and wish to reduce the size
+	// of your final executable, you should remove from the following
+	// the specific initialization routines you do not need
+	// Change the registry key under which our settings are stored
+	// TODO: You should modify this string to be something appropriate
+	// such as the name of your company or organization
+	SetRegistryKey(_T("Local AppWizard-Generated Applications"));
+	LoadStdProfileSettings(4);  // Load standard INI file options (including MRU)
+
+
+	InitContextMenuManager();
+
+	InitKeyboardManager();
+
+	InitTooltipManager();
+	CMFCToolTipInfo ttParams;
+	ttParams.m_bVislManagerTheme = TRUE;
+	theApp.GetTooltipManager()->SetTooltipParams(AFX_TOOLTIP_TYPE_ALL,
+		RUNTIME_CLASS(CMFCToolTipCtrl), &ttParams);
+
+	// Register the application's document templates.  Document templates
+	//  serve as the connection between documents, frame windows and views
+	CSingleDocTemplate* pDocTemplate;
+	pDocTemplate = new CSingleDocTemplate(
+		IDR_MAINFRAME,
+		RUNTIME_CLASS(CPolygonDoc),
+		RUNTIME_CLASS(CMainFrame),       // main SDI frame window
+		RUNTIME_CLASS(CPolygonView));
+	if (!pDocTemplate)
+		return FALSE;
+	AddDocTemplate(pDocTemplate);
+
+
+	// Parse command line for standard shell commands, DDE, file open
+	CCommandLineInfo cmdInfo;
+	ParseCommandLine(cmdInfo);
+
+	// Enable DDE Execute open
+	EnableShellOpen();
+	RegisterShellFileTypes(TRUE);
+
+
+	// Dispatch commands specified on the command line.  Will return FALSE if
+	// app was launched with /RegServer, /Register, /Unregserver or /Unregister.
+	if (!ProcessShellCommand(cmdInfo))
+		return FALSE;
+
+	// The one and only window has been initialized, so show and update it
+	m_pMainWnd->ShowWindow(SW_SHOW);
+	m_pMainWnd->UpdateWindow();
+	// call DragAcceptFiles only if there's a suffix
+	//  In an SDI app, this should occur after ProcessShellCommand
+	// Enable drag/drop open
+	m_pMainWnd->DragAcceptFiles();
+	return TRUE;
+}
+
+int CPolygonApp::ExitInstance()
+{
+	//TODO: handle additional resources you may have added
+	AfxOleTerm(FALSE);
+
+	return CWinAppEx::ExitInstance();
+}
+
+// CPolygonApp message handlers
+
+
+// CAboutDlg dialog used for App About
+
+class CAboutDlg : public CDialogEx
+{
+public:
+	CAboutDlg();
+
+// Dialog Data
+	enum { IDD = IDD_ABOUTBOX };
+
+protected:
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+
+// Implementation
+protected:
+	DECLARE_MESSAGE_MAP()
+};
+
+CAboutDlg::CAboutDlg() : CDialogEx(CAboutDlg::IDD)
+{
+}
+
+void CAboutDlg::DoDataExchange(CDataExchange* pDX)
+{
+	CDialogEx::DoDataExchange(pDX);
+}
+
+BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
+END_MESSAGE_MAP()
+
+// App command to run the dialog
+void CPolygonApp::OnAppAbout()
+{
+	CAboutDlg aboutDlg;
+	aboutDlg.DoModal();
+}
+
+// CPolygonApp customization load/save methods
+
+void CPolygonApp::PreLoadState()
+{
+	BOOL bNameValid;
+	CString strName;
+	bNameValid = strName.LoadString(IDS_EDIT_MENU);
+	ASSERT(bNameValid);
+	GetContextMenuManager()->AddMenu(strName, IDR_POPUP_EDIT);
+}
+
+void CPolygonApp::LoadCustomState()
+{
+}
+
+void CPolygonApp::SaveCustomState()
+{
+}
+
+// CPolygonApp message handlers
+
+
+

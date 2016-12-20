@@ -104,8 +104,16 @@ BOOL CPolygonView::PreCreateWindow(CREATESTRUCT& cs)
 }
 
 void CPolygonView::drawTriangle(CDC* pDC, double scale, Point translation, int right, int bottom, Point u, Point v, Point w, int fill, int r, int g, int b) {
-    CBrush brush(RGB(r, g, b));
-    CBrush* brushOld = (CBrush*)pDC->SelectObject(&brush);
+    CBrush brush1(RGB(r, g, b));
+    CBrush brush2(RGB(0, 0, 0));
+
+    CBrush* brushOld;
+    if (isValid) {
+        brushOld = (CBrush*)pDC->SelectObject(&brush1);
+    }
+    else {
+        brushOld = (CBrush*)pDC->SelectObject(&brush2);
+    }
     //CPen pen(PS_DASH, 1, RGB(0, 0, 0));
     CPen* pen = (CPen*)pDC->SelectStockObject(NULL_PEN);
     CPen* penOld = (CPen*)pDC->SelectObject(pen);
@@ -1599,13 +1607,17 @@ void CPolygonView::OnTriangulation()
 #if ZBW_IS_DEBUGGING
     d.computeTriangulation();
 #else
+    isValid = true;
     try {
+        d.computeEdges();
+        isValid = d.checkValid();
         d.computeTriangulation();
     }
     catch (int e) {
 #if DYNAMIC == 0
         MessageBox(_T("请打开顶点编号显示，并检查多边形顶点编号正确性。"), _T("哦抱歉"));
 #endif
+        isValid = false;
         std::cout << "Error:" << e << std::endl;
         return;
     }

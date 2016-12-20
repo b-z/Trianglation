@@ -20,11 +20,58 @@ void Delaunay::computeEdges() {
         }
     }
 }
+
+bool Delaunay::checkValid() {
+    // 边相交
+    for (unsigned int i = 0; i < edges.size(); i++) {
+        for (unsigned int j = 0; j < edges.size(); j++) {
+            if (i == j) continue;
+            if (isIntersection(edges[i], edges[j])) return false;
+        }
+    }
+
+    // 内环在外环外
+    for (unsigned int i = 0; i < polygon->regionArray.size(); i++) {
+        for (unsigned int j = 0; j < polygon->regionArray[i].ringArray.size(); j++) {
+            Ring r = polygon->regionArray[i].ringArray[j];
+            bool clockwise = ringOrder(r);
+            if ((j == 0 && !clockwise)
+                ||(j != 0 && clockwise))
+                return false;
+            if (j!=0) {
+                for (unsigned int k = 0; k < r.pointIDArray.size(); k++) {
+                    if (!isInRing(P(r.pointIDArray[k]), polygon->regionArray[i].ringArray[0])) {
+                        return false;
+                    }
+                }
+            }
+        }
+    }
+
+    // 区域与其他区域相交
+    for (unsigned int i = 0; i < polygon->regionArray.size(); i++) {
+        Region ri = polygon->regionArray[i];
+        for (unsigned int j = 0; j < polygon->regionArray.size(); j++) {
+            if (i==j)continue;
+            Region rj = polygon->regionArray[j];
+            for (unsigned int k = 0; k <rj.ringArray.size(); k++) {
+                Ring ring = rj.ringArray[k];
+                for (unsigned int l = 0; l < ring.pointIDArray.size(); l++) {
+                    Point p = P(ring.pointIDArray[l]);
+                    if (isInRegion(p, ri)) return false;
+                }
+            }
+
+        }
+    }
+
+    return true;
+}
+
 #ifdef CORRECT
 void Delaunay::computeTriangulation() {
     count = 0;
     triangles.clear();
-    computeEdges();
     N = int(edges.size());
     if (N < 3) {
         return;
@@ -329,8 +376,8 @@ bool Delaunay::isIntersection(Edge e1, Edge e2) {
         max(p11.y, p12.y) < min(p21.y, p22.y) ||
         max(p21.x, p22.x) < min(p11.x, p12.x) ||
         max(p21.y, p22.y) < min(p11.y, p12.y) ||
-        mult(p21, p12, p11) * mult(p12, p22, p11) < 0 ||
-        mult(p11, p22, p21) * mult(p22, p12, p21) < 0
+        mult(p21, p12, p11) * mult(p12, p22, p11) <= 0 ||
+        mult(p11, p22, p21) * mult(p22, p12, p21) <= 0
         );
 }
 
@@ -370,6 +417,43 @@ bool Delaunay::isIn(Point p, Point p1, Point p2, Point p3) {
         return false;
     }
     return true;
+}
+
+bool Delaunay::isInRing(Point p, Ring r) {
+    double sum = 0;
+    IntArray ia = r.pointIDArray;
+    unsigned int len = ia.size();
+    for (unsigned int i = 0; i < len; i++) {
+        Point p1 = P(ia[i]) - p;
+        Point p2 = P(ia[(i+1)%len]) - p;
+        sum += p1 >> p2;
+    }
+    if (abs(sum) < 1e-8) {
+        return false;
+    }
+    return true;
+}
+
+bool Delaunay::isInRegion(Point p, Region r) {
+    RingArray ra = r.ringArray;
+    for (unsigned int j = 0; j < ra.size(); j++) {
+        Ring ring = ra[j];
+        if (j==0 && !isInRing(p, ring)) return false;
+        if (j!=0 && isInRing(p, ring)) return false;
+    }
+    return true;
+}
+
+bool Delaunay::ringOrder(Ring r) {
+    double sum = 0;
+    IntArray ia = r.pointIDArray;
+    unsigned int len = ia.size();
+    for (unsigned int i = 0; i < len; i++) {
+        Point p1 = P(ia[i]);
+        Point p2 = P(ia[(i+1)%len]);
+        sum += p1.x*p2.y-p2.x*p1.y;
+    }
+    return sum > 0;
 }
 
 bool Delaunay::isOtherEdgesIntersectWithVectors(Edge e1, Edge e2) {
